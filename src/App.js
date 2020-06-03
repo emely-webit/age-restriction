@@ -6,6 +6,7 @@ import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import Frontpage from './components/Frontpage/Frontpage';
 import Butik from './components/Butik/Butik';
+import Diskotek18 from './components/Diskotek/Diskotek18';
 
 const theme = createMuiTheme({
   palette: {
@@ -26,7 +27,7 @@ const theme = createMuiTheme({
     }
   },
 })
-
+ 
 function App() {
   return (
     <ThemeProvider theme={theme}>
@@ -37,9 +38,9 @@ function App() {
           <Route exact path="/" component={Frontpage} />
           <Route exact path="/butik" component={Butik}/>
           <Route exact path="/diskotek-over-16"  />
-          <Route exact path="/diskotek-over-18" />
+          <Route exact path="/diskotek-over-18" component={Diskotek18} />
         </div>
-        <Footer />
+        <Footer/>
       </HashRouter>
     </ThemeProvider>
   );
