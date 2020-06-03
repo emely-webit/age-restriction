@@ -39,8 +39,8 @@ export default function Header() {
             </AppBar>
             <Drawer anchor="right" open={open} onClose={handleDrawer}>
                 <Box className={classes.drawer} m={2}>
-                    <Typography variant="h4" align="center">Information</Typography>
-                    <Typography variant="body1" align="center">Meningen med dette projekt er meningen at gøre det enkelt at tjekke folks alder, i forhold til de danske regler når det angår aldersgrænser.</Typography>
+                    <Typography variant="h4" align="center" color="textSecondary">Information</Typography>
+                    <Typography variant="body1" align="center" color="textSecondary">Meningen med dette projekt er at gøre det enkelt at tjekke folks alder, i forhold til de danske regler når det angår aldersgrænser.</Typography>
                 </Box>
             </Drawer>
         </div>
