@@ -5,11 +5,12 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
     mainPosition:{
-        position: "relative"
+        position: "relative",
+        height: "200px"
     },
     iconBalloon: {
         overflow: "unset",
-        height: "10px",
+        height: "5%",
         top: 0,
         position: "absolute",
     },
@@ -40,11 +41,11 @@ function Balloons() {
 
     return (
         <aside className={classes.mainPosition}>
-            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition}`} color="primary" />
-            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition1}` } color="secondary" />
-            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition2}` } color="secondary" />
-            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition3}` } color="secondary" />
-            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition4}` } color="secondary" />
+            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition}`} color="secondary" />
+            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition1}` } color="error" />
+            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition2}` } color="error" />
+            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition3}` } color="error" />
+            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition4}` } color="error" />
             <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition5}` } color="secondary" />
         </aside>
     )
