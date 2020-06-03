@@ -3,7 +3,7 @@ import {ReactComponent as Balloon} from '../Icons/Balloon.svg';
 import { SvgIcon } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     mainPosition:{
         position: "relative",
         height: "200px"
@@ -18,21 +18,25 @@ const useStyles = makeStyles({
         left: 0
     },
     balloonPosition1:{
-        left: "8%"
+        left: "8%",
     },
     balloonPosition2:{
-        left: "41%"
+        left: "41%",
+        color: theme.palette.success.dark
     },
     balloonPosition3:{
-        left: "51%"
+        left: "51%",
+        color: "#F2E205"
+        
     },
     balloonPosition4:{
-        left: "88%"
+        left: "88%",
     },
     balloonPosition5:{
-        right: "2%"
-    },
-})
+        right: "2%",
+        color: "#78CC4F"
+    }
+}))
 
 
 function Balloons() {
@@ -41,8 +45,8 @@ function Balloons() {
 
     return (
         <aside className={classes.mainPosition}>
-            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition}`} color="secondary" />
-            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition1}` } color="error" />
+            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition}`} color="error" />
+            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition1}` } color="secondary" />
             <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition2}` } color="error" />
             <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition3}` } color="error" />
             <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition4}` } color="error" />
