@@ -14,12 +14,7 @@ function Diskotek18() {
     return (
         <main>
             <Balloons/>
-            {/* <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition}`} color="primary" />
-            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition1}` } color="secondary" />
-            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition2}` } color="secondary" />
-            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition3}` } color="secondary" />
-            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition4}` } color="secondary" />
-            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition5}` } color="secondary" /> */}
+            
         </main>
     )
 }
