@@ -2,18 +2,18 @@ import React, { useState } from 'react';
 import { makeStyles, AppBar, Toolbar, Typography, Button, Drawer, Box } from '@material-ui/core'
 import { ReactComponent as MenuIcon } from '../Icons/MenuIcon.svg';
 import { ReactComponent as Logo } from '../Icons/Logo.svg';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
     },
-    title: {
-        flexGrow: 1,
-        display: 'flex',
-        
-    },
     drawer: {
         width: 250,
+    },
+    logoLink:{
+        flexGrow: 1,
+        display: 'flex'
     }
 }));
 
@@ -29,9 +29,9 @@ export default function Header() {
         <div className={classes.root}>
             <AppBar position="static" color="primary">
                 <Toolbar>
-                    <Typography variant="h6" className={classes.title}>
+                    <Link to="/" className={classes.logoLink}>
                         <Logo />
-                        </Typography>
+                    </Link>
                     <Button edge="end" color="inherit" aria-label="Open information" onClick={handleDrawer}>
                         <MenuIcon />
                     </Button>

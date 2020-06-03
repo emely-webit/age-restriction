@@ -33,26 +33,6 @@ const Butik = () => {
         <main>
             <Grid container direction="row" align="center" justify="center" spacing={2}>
                 <Grid item md={9}>
-<<<<<<< Updated upstream
-                    <Typography variant="h4">Tjek alder</Typography>
-                    <Box bgcolor>
-                        <form className={classes.background}>
-                            <TextField
-                                id="standard-full-width"
-                                label="Scan sygesikringskort"
-                                classes={{root: classes.root}}
-                                fullWidth
-                                margin="normal"
-
-                            />
-                        </form>
-                    </Box>
-                    <Box>
-                        <Box>
-                            <Typography variant="h5">Information</Typography>
-
-
-=======
                     <Typography className={classes.bold} variant="h2">Tjek alder</Typography>
                     <Box p={5}>
                         <Box bgcolor="primary.main" color="primary.contrastText">
@@ -88,7 +68,6 @@ const Butik = () => {
                                     </Box>
                                 </CardContent>
                             </Card>
->>>>>>> Stashed changes
                         </Box>
                     </Box>
                 </Grid>
