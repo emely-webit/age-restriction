@@ -15,7 +15,7 @@ const Butik = () => {
             <Grid container direction="row" align="center" justify="center" spacing={2}>
                 <Grid item md={9}>
                     <Typography variant="h4">Tjek alder</Typography>
-                    <Box>
+                    <Box bgcolor>
                         <form className={classes.background}>
                             <TextField
                                 id="standard-full-width"
