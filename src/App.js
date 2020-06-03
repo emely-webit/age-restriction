@@ -1,20 +1,34 @@
 import React from 'react';
-import Frontpage from './components/Frontpage/Frontpage';
 import { HashRouter, Route } from 'react-router-dom';
-import Header from './components/Header/Header';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Header from './components/Header/Header'
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#ff4400'
+    },
+    secondary: {
+      main: '#0044ff'
+    }
+  },
+})
 
 function App() {
   return (
-    <HashRouter>
-
-      <div className="App">
-        <Route exact path="/" component={Frontpage} />
-        <Route exact path="/butik" component={Header} />
-        <Route exact path="/diskotek-over-16" component={Frontpage} />
-        <Route exact path="/diskotek-over-18" component={Frontpage} />
-      </div>
-
-    </HashRouter>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <HashRouter>
+        <Header />
+        <div className="App">
+          <Route exact path="/" />
+          <Route exact path="/butik" />
+          <Route exact path="/diskotek-over-16" />
+          <Route exact path="/diskotek-over-18" />
+        </div>
+      </HashRouter>
+    </ThemeProvider>
   );
 }
 
