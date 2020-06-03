@@ -55,7 +55,7 @@ const Butik = () => {
                             </form>
                         </Box>
                         <Box mt={6}>
-                            <Card variant="contained" className={classes.card}>
+                            <Card className={classes.card}>
                                 <CardContent>
                                     <Typography className={classes.bold} variant="h3" align="left">Information</Typography>
                                     <Box mt={2}>
@@ -72,7 +72,7 @@ const Butik = () => {
                     </Box>
                 </Grid>
                 <Grid item md={3}>
-                    <Box bgcolor="primary.light" height="100vh" pt={2}>
+                    <Box bgcolor="primary.light"  pt={2}>
                         <Typography className={classes.bold} variant="h4" align="center" color="textSecondary">Afventer godkendelse</Typography>
                     </Box>
                 </Grid>
