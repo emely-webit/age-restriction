@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { makeStyles, AppBar, Toolbar, Typography, Button, Drawer, Box } from '@material-ui/core'
 import { ReactComponent as MenuIcon } from '../Icons/MenuIcon.svg';
+import { ReactComponent as Logo } from '../Icons/Logo.svg';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -8,6 +9,8 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
         flexGrow: 1,
+        display: 'flex',
+        
     },
     drawer: {
         width: 250,
@@ -27,7 +30,7 @@ export default function Header() {
             <AppBar position="static" color="secondary">
                 <Toolbar>
                     <Typography variant="h6" className={classes.title}>
-                        Age Restriction
+                        <Logo />
                         </Typography>
                     <Button edge="end" color="inherit" aria-label="Open information" onClick={handleDrawer}>
                         <MenuIcon />
