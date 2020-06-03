@@ -9,10 +9,19 @@ import Diskotek18 from './components/Diskotek/Diskotek18';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#ff4400'
+      main: '#ff4400',
     },
     secondary: {
-      main: '#0044ff'
+      main: '#0044ff',
+    },
+    error: {
+      main: '#F20505',
+    },
+    warning: {
+      main: '#FFB845',
+    },
+    success: {
+      main: '#78CC4F',
     }
   },
 })
