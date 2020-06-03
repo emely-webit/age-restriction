@@ -14,7 +14,7 @@ const Footer = () => {
 
     return (
         <AppBar py={2} className={classes.appBar} component="footer">
-            <Typography variant="body2" color="white" align="center">
+            <Typography variant="body2" align="center">
                 {`Copyright ${new Date().getUTCFullYear()} © `}
                 Emely Buchholt & Daniel Pedersen
             </Typography>
