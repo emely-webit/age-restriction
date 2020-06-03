@@ -33,26 +33,6 @@ const Butik = () => {
         <main>
             <Grid container direction="row" align="center" justify="center" spacing={2}>
                 <Grid item md={9}>
-<<<<<<< Updated upstream
-                    <Typography variant="h4">Tjek alder</Typography>
-                    <Box bgcolor>
-                        <form className={classes.background}>
-                            <TextField
-                                id="standard-full-width"
-                                label="Scan sygesikringskort"
-                                classes={{root: classes.root}}
-                                fullWidth
-                                margin="normal"
-
-                            />
-                        </form>
-                    </Box>
-                    <Box>
-                        <Box>
-                            <Typography variant="h5">Information</Typography>
-
-
-=======
                     <Typography className={classes.bold} variant="h2">Tjek alder</Typography>
                     <Box p={5}>
                         <Box bgcolor="primary.main" color="primary.contrastText">
@@ -75,7 +55,7 @@ const Butik = () => {
                             </form>
                         </Box>
                         <Box mt={6}>
-                            <Card variant="contained" className={classes.card}>
+                            <Card className={classes.card}>
                                 <CardContent>
                                     <Typography className={classes.bold} variant="h3" align="left">Information</Typography>
                                     <Box mt={2}>
@@ -88,12 +68,11 @@ const Butik = () => {
                                     </Box>
                                 </CardContent>
                             </Card>
->>>>>>> Stashed changes
                         </Box>
                     </Box>
                 </Grid>
                 <Grid item md={3}>
-                    <Box bgcolor="primary.light" height="100vh" pt={2}>
+                    <Box bgcolor="primary.light"  pt={2}>
                         <Typography className={classes.bold} variant="h4" align="center" color="textSecondary">Afventer godkendelse</Typography>
                     </Box>
                 </Grid>
