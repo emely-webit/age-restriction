@@ -25,7 +25,8 @@ const useStyles = makeStyles((theme) => ({
         padding: 2
     },
     aside: {
-        height: '100%',
+        // backgrounColor: theme.palette.primary.light,
+        height: '100vh',
     }
 }));
 
@@ -41,6 +42,8 @@ const Butik = () => {
 
     useEffect(() => {
         if(!information) return
+        // if(!inputEl.current.value) return;
+        if(information[information.length-1].length < 47 || information.length < 2) return alert('Prøv igen')
 
         let name = information[0].replace('%', '').split('&').filter((x) => x).reverse().join(' ')
 
@@ -62,10 +65,46 @@ const Butik = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        
         setInformation(inputEl.current.value.split(' ').filter((x) => x))
+
 
         inputEl.current.value = ''
     }
+
+    const validering = () => {
+        
+        if(user.age === null){
+            return(
+                <Typography className={classes.bold} variant="h4" align="center" color="textSecondary">Afventer godkendelse</Typography>
+            )
+        }
+        else if(user.age < 16){
+            return (
+                <div>
+                    <Typography color="error" className={classes.bold} variant="h4" align="center" color="textSecondary">Afvist</Typography>
+                    <Typography variant="body1">Personen er <span className={classes.bold}>IKKE</span> godkendt til alkohol</Typography>
+                </div>
+            )
+        }
+        else if(user.age >= 18){
+            return (
+                <div>
+                    <Typography color="success" className={classes.bold} variant="h4" align="center" color="textSecondary">Godkendt</Typography>
+                    <Typography variant="body1">Personen er godkendt til at købe alkohol og tobak</Typography>
+                </div>
+            )
+        }
+        else if(user.age >= 16){
+            return (
+                <div>
+                    <Typography className={classes.bold} variant="h4" align="center" color="textSecondary">Afvist</Typography>
+                    <Typography variant="body1">Personen er godkendt til at købe alkohol til og med <span className={classes.bold}>16,4%</span> og <span className={classes.bold}>IKKE</span> tobak</Typography>
+                </div>
+            )
+        }
+    }
+    console.log(user);
 
     return (
         <main>
@@ -114,7 +153,7 @@ const Butik = () => {
                 </Grid>
                 <Grid item md={3}>
                     <Box component="aside" bgcolor="primary.light"  pt={2} className={classes.aside}>
-                        <Typography className={classes.bold} variant="h4" align="center" color="textSecondary">Afventer godkendelse</Typography>
+                        {validering}
                     </Box>
                 </Grid>
             </Grid>
