@@ -5,17 +5,17 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
     headingStyle:{
         fontSize: "50px",
-        color: '#730202',
+        color: theme.palette.info.main,
         textAlign: "center"
     },
     inputStyle:{
         width: "80%",
         margin: "0 auto",
-        borderRadius: "5px",
-        border: "1px solid",
-        padding: "50px",
+        borderRadius: "20px",
+        border: "none",
+        padding: "50px 10px 30px",
         display: "block",
-        backgroundColor: "#7C05F2",
+        backgroundColor: theme.palette.secondary.main,
         '&::placeholder':{
             color: "white",
             fontSize: "50px",
@@ -24,13 +24,13 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-function DiskotekInfo() {
+function DiskotekInfo(props) {
 
     const classes = useStyles();
 
     return (
         <section>
-            <h1 className={classes.headingStyle}>Tjek din alder</h1>
+            <h1 className={classes.headingStyle}>Tjek din alder {props.headlineTitle}</h1>
             <input type="text" className={classes.inputStyle} placeholder="Scan sygesikringskort" />
         </section>
     )

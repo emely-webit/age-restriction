@@ -15,26 +15,34 @@ const useStyles = makeStyles((theme) => ({
         position: "absolute",
     },
     balloonPosition:{
-        left: 0
+        left: 0,
+        color: theme.palette.success.main
     },
     balloonPosition1:{
         left: "8%",
     },
     balloonPosition2:{
-        left: "41%",
-        color: theme.palette.success.dark
+        left: "25%",
     },
     balloonPosition3:{
-        left: "51%",
-        color: "#F2E205"
-        
+        left: "41%",
+        color: theme.palette.warning.main
     },
     balloonPosition4:{
-        left: "88%",
+        left: "51%",
+        color: theme.palette.warning.main
+        
     },
     balloonPosition5:{
+        left: "69%",
+        
+    },
+    balloonPosition6:{
+        left: "88%",
+    },
+    balloonPosition7:{
         right: "2%",
-        color: "#78CC4F"
+        color: theme.palette.success.main
     }
 }))
 
@@ -45,12 +53,14 @@ function Balloons() {
 
     return (
         <aside className={classes.mainPosition}>
-            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition}`} color="error" />
-            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition1}` } color="secondary" />
-            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition2}` } color="error" />
-            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition3}` } color="error" />
-            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition4}` } color="error" />
+            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition}`}  />
+            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition1}` } color="error" />
+            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition2}` } color="secondary" />
+            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition3}` } />
+            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition4}` } />
             <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition5}` } color="secondary" />
+            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition6}` } color="error" />
+            <SvgIcon component={Balloon} className={`${classes.iconBalloon} ${classes.balloonPosition7}` } />
         </aside>
     )
 }
