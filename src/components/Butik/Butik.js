@@ -19,13 +19,26 @@ const useStyles = makeStyles((theme) => ({
         "&.focused": {
             color: theme.palette.primary.contrastText,
             fontWeight: 'bold'
-          }
+        }
     },
     form: {
         padding: 2
     },
     aside: {
-        height: '100%',
+        backgroundColor: theme.palette.primary.light,
+        height: '100vh',
+    },
+    warning: {
+        color: theme.palette.warning.main,
+        fontWeight: 'bold',
+    },
+    error: {
+        color: theme.palette.error.main,
+        fontWeight: 'bold',
+    },
+    success: {
+        color: theme.palette.success.main,
+        fontWeight: 'bold',
     }
 }));
 
@@ -33,42 +46,109 @@ const Butik = () => {
     const classes = useStyles()
     const [information, setInformation] = useState()
     const [user, setUser] = useState({
-        name: null,
-        birthDate: null,
-        age: null
+        name: "Navn Efternavn",
+        birthDate: "000000",
+        age: 18
     })
     const inputEl = useRef(null)
 
     useEffect(() => {
-        if(!information) return
+        if (!information) return
+        // if(!inputEl.current.value) return;
+        if (information[information.length - 1].length < 47 || information.length < 2) return alert('Prøv igen')
 
         let name = information[0].replace('%', '').split('&').filter((x) => x).reverse().join(' ')
 
-        let birth = information[information.length-1].slice(17,23)
-        
+        let birth = information[information.length - 1].slice(17, 23)
+
         let array = birth.match(/.{1,2}/g)
         let birthDate = new Date(`${array[1]}/${array[0]}/${array[2]}`);
         let today = new Date()
-        let diff = today-birthDate
-        let age = Math.floor(diff/31557600000)
-        
+        let diff = today - birthDate
+        let age = Math.floor(diff / 31557600000)
 
-        setUser({...user, name, birthDate: birth, age: age})
 
+        setUser(u=> ({ ...u, name, birthDate: birth, age: age }))
+        setInformation(null)
     }, [information])
-
-    console.log(user)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+
         setInformation(inputEl.current.value.split(' ').filter((x) => x))
+
 
         inputEl.current.value = ''
     }
 
+
+    const Validering = () => {
+        if (!user.age) {
+            console.log("test")
+            return (
+                <Typography className={classes.bold} variant="h4" align="center" color="textSecondary">Afventer godkendelse</Typography>
+            )
+        } else if (user.age < 16) {
+            return (
+                <div>
+                    <Typography className={classes.error} variant="h4" align="center" color="error">Afvist</Typography>
+                    <Typography color="textSecondary" variant="body1">Personen er <span className={classes.bold}>IKKE</span> godkendt til alkohol</Typography>
+                </div>
+            )
+        } else if (user.age >= 18) {
+            return (
+                <>
+                    <Typography className={classes.success} variant="h4" align="center">Godkendt</Typography>
+                    <Typography color="textSecondary" variant="body1">Personen er godkendt til at købe alkohol og tobak</Typography>
+                </>
+            )
+        } else if (user.age >= 16) {
+            return (
+                <div>
+                    <Typography className={classes.warning} variant="h4" align="center">Afvist</Typography>
+                    <Typography color="textSecondary" variant="body1">Personen er godkendt til at købe alkohol til og med <span className={classes.bold}>16,4%</span> og <span className={classes.bold}>IKKE</span> tobak</Typography>
+                </div>
+            )
+        }
+        return
+    }
+
+    // const validering = () => {
+
+    //     if(user.age === null){
+    //         return(
+    //             <Typography className={classes.bold} variant="h4" align="center" color="textSecondary">Afventer godkendelse</Typography>
+    //         )
+    //     }
+    //     else if(user.age < 16){
+    //         return (
+    //             <div>
+    //                 <Typography color="error" className={classes.bold} variant="h4" align="center" color="textSecondary">Afvist</Typography>
+    //                 <Typography variant="body1">Personen er <span className={classes.bold}>IKKE</span> godkendt til alkohol</Typography>
+    //             </div>
+    //         )
+    //     }
+    //     else if(user.age >= 18){
+    //         return (
+    //             <div>
+    //                 <Typography color="success" className={classes.bold} variant="h4" align="center" color="textSecondary">Godkendt</Typography>
+    //                 <Typography variant="body1">Personen er godkendt til at købe alkohol og tobak</Typography>
+    //             </div>
+    //         )
+    //     }
+    //     else if(user.age >= 16){
+    //         return (
+    // <div>
+    //     <Typography className={classes.bold} variant="h4" align="center" color="textSecondary">Afvist</Typography>
+    //     <Typography variant="body1">Personen er godkendt til at købe alkohol til og med <span className={classes.bold}>16,4%</span> og <span className={classes.bold}>IKKE</span> tobak</Typography>
+    // </div>
+    //         )
+    //     }
+    // }
+
     return (
         <main>
-            <Grid container direction="row" align="center" justify="center" spacing={2}>
+            <Grid component="section" container direction="row" align="center" justify="center" spacing={2}>
                 <Grid item md={9}>
                     <Typography className={classes.bold} variant="h2">Tjek alder</Typography>
                     <Box p={5}>
@@ -78,7 +158,8 @@ const Butik = () => {
                                     label="Scan sygesikringskort"
                                     fullWidth
                                     margin="normal"
-                                    type="password"
+                                    type="text"
+                                    autoComplete="off"
                                     InputProps={{
                                         className: classes.white,
                                     }}
@@ -99,11 +180,11 @@ const Butik = () => {
                                     <Typography className={classes.bold} variant="h3" align="left">Information</Typography>
                                     <Box mt={2}>
                                         <Typography variant="body1" align="left">Fødselsdag</Typography>
-                                        <Typography id="year" variant="h4" align="left">******</Typography>
+                                        <Typography id="year" variant="h4" align="left">{user.birthDate}</Typography>
                                     </Box>
                                     <Box>
                                         <Typography variant="body1" align="left">Navn</Typography>
-                                        <Typography id="name" variant="h5" align="left">****** **** ********</Typography>
+                                        <Typography id="name" variant="h5" align="left">{user.name}</Typography>
                                     </Box>
                                 </CardContent>
                             </Card>
@@ -111,8 +192,8 @@ const Butik = () => {
                     </Box>
                 </Grid>
                 <Grid item md={3}>
-                    <Box component="aside" bgcolor="primary.light"  pt={2} className={classes.aside}>
-                        <Typography className={classes.bold} variant="h4" align="center" color="textSecondary">Afventer godkendelse</Typography>
+                    <Box component="aside" bgcolor="primary.light" p={2} className={classes.aside}>
+                        <Validering />
                     </Box>
                 </Grid>
             </Grid>
