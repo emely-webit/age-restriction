@@ -33,8 +33,8 @@ const Butik = () => {
     const classes = useStyles()
     const [information, setInformation] = useState()
     const [user, setUser] = useState({
-        name: null,
-        birthDate: null,
+        name: "Navn Efternavn",
+        birthDate: "000000",
         age: null
     })
     const inputEl = useRef(null)
@@ -54,10 +54,11 @@ const Butik = () => {
         
 
         setUser({...user, name, birthDate: birth, age: age})
-
+        setInformation(null)
     }, [information])
 
     console.log(user)
+    console.log(information);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -68,7 +69,7 @@ const Butik = () => {
 
     return (
         <main>
-            <Grid container direction="row" align="center" justify="center" spacing={2}>
+            <Grid component="section" container direction="row" align="center" justify="center" spacing={2}>
                 <Grid item md={9}>
                     <Typography className={classes.bold} variant="h2">Tjek alder</Typography>
                     <Box p={5}>
@@ -78,7 +79,8 @@ const Butik = () => {
                                     label="Scan sygesikringskort"
                                     fullWidth
                                     margin="normal"
-                                    type="password"
+                                    type="text"
+                                    autoComplete="off"
                                     InputProps={{
                                         className: classes.white,
                                     }}
@@ -99,11 +101,11 @@ const Butik = () => {
                                     <Typography className={classes.bold} variant="h3" align="left">Information</Typography>
                                     <Box mt={2}>
                                         <Typography variant="body1" align="left">Fødselsdag</Typography>
-                                        <Typography id="year" variant="h4" align="left">******</Typography>
+                                        <Typography id="year" variant="h4" align="left">{user.birthDate}</Typography>
                                     </Box>
                                     <Box>
                                         <Typography variant="body1" align="left">Navn</Typography>
-                                        <Typography id="name" variant="h5" align="left">****** **** ********</Typography>
+                                        <Typography id="name" variant="h5" align="left">{user.name}</Typography>
                                     </Box>
                                 </CardContent>
                             </Card>
