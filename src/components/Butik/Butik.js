@@ -48,7 +48,7 @@ const Butik = () => {
     const [user, setUser] = useState({
         name: "Navn Efternavn",
         birthDate: "000000",
-        age: 18
+        age: null
     })
     const inputEl = useRef(null)
 
