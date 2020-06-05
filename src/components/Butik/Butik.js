@@ -3,9 +3,6 @@ import { Grid, Typography, Box, TextField, makeStyles } from '@material-ui/core'
 import { Card, CardContent } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        color: '#fefefe'
-    },
     card: {
         backgroundColor: theme.palette.primary,
         color: theme.palette.primary.contrastText
@@ -54,7 +51,6 @@ const Butik = () => {
 
     useEffect(() => {
         if (!information) return
-        // if(!inputEl.current.value) return;
         if (information[information.length - 1].length < 47 || information.length < 2) return alert('Prøv igen')
 
         let name = information[0].replace('%', '').split('&').filter((x) => x).reverse().join(' ')
@@ -76,7 +72,6 @@ const Butik = () => {
         e.preventDefault()
 
         setInformation(inputEl.current.value.split(' ').filter((x) => x))
-
 
         inputEl.current.value = ''
     }
@@ -157,7 +152,7 @@ const Butik = () => {
                     </Box>
                 </Grid>
                 <Grid item md={3}>
-                    <Box component="aside" bgcolor="primary.light" p={2} className={classes.aside}>
+                    <Box component="aside" bgcolor="primary.light" p={4} className={classes.aside}>
                         <Validering />
                     </Box>
                 </Grid>
