@@ -43,7 +43,7 @@ const Butik = () => {
     const classes = useStyles()
     const [information, setInformation] = useState()
     const [user, setUser] = useState({
-        name: "Navn Efternavn",
+        name: "Fornavn Efternavn",
         birthDate: "000000",
         age: null
     })
