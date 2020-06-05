@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     },
     aside: {
         backgroundColor: theme.palette.primary.light,
-        height: '100vh',
+        height: '150%',
     },
     warning: {
         color: theme.palette.warning.main,
@@ -36,7 +36,10 @@ const useStyles = makeStyles((theme) => ({
     success: {
         color: theme.palette.success.main,
         fontWeight: 'bold',
-    }
+    },
+    font: {
+        fontSize: 20,
+    },
 }));
 
 const Butik = () => {
@@ -64,7 +67,7 @@ const Butik = () => {
         let age = Math.floor(diff / 31557600000)
 
 
-        setUser(u=> ({ ...u, name, birthDate: birth, age: age }))
+        setUser(u => ({ ...u, name, birthDate: birth, age: age }))
         setInformation(null)
     }, [information])
 
@@ -81,27 +84,27 @@ const Butik = () => {
     const Validering = () => {
         if (!user.age) {
             return (
-                <Typography className={classes.bold} variant="h4" align="center" color="textSecondary">Afventer godkendelse</Typography>
+                <Typography className={classes.bold} variant="h4" component="h3" align="center" color="textSecondary">Afventer godkendelse</Typography>
             )
         } else if (user.age < 16) {
             return (
                 <div>
-                    <Typography className={classes.error} variant="h4" align="center" color="error">Afvist</Typography>
-                    <Typography color="textSecondary" variant="body1">Personen er <span className={classes.bold}>IKKE</span> godkendt til alkohol</Typography>
+                    <Typography className={classes.error} variant="h3" component="h3" align="center" color="error">Afvist</Typography>
+                    <Typography className={classes.font} color="textSecondary" variant="body1">Personen må <span className={classes.bold}>IKKE</span> købe alkohol og tobak</Typography>
                 </div>
             )
         } else if (user.age >= 18) {
             return (
                 <>
-                    <Typography className={classes.success} variant="h4" align="center">Godkendt</Typography>
-                    <Typography color="textSecondary" variant="body1">Personen er godkendt til at købe alkohol og tobak</Typography>
+                    <Typography className={classes.success} variant="h4" component="h3" align="center">Godkendt</Typography>
+                    <Typography className={classes.font} color="textSecondary" variant="body1">Personen er godkendt til at købe alkohol og tobak</Typography>
                 </>
             )
         } else if (user.age >= 16) {
             return (
                 <div>
-                    <Typography className={classes.warning} variant="h4" align="center">Afvist</Typography>
-                    <Typography color="textSecondary" variant="body1">Personen er godkendt til at købe alkohol til og med <span className={classes.bold}>16,4%</span> og <span className={classes.bold}>IKKE</span> tobak</Typography>
+                    <Typography className={classes.warning} variant="h4" component="h3" align="center">Godkendt</Typography>
+                    <Typography className={classes.font} color="textSecondary" variant="body1">Personen er godkendt til at købe alkohol til og med <span className={classes.bold}>16,4%</span> og <span className={classes.bold}>IKKE</span> tobak</Typography>
                 </div>
             )
         }
@@ -122,7 +125,7 @@ const Butik = () => {
                                     type="text"
                                     autoComplete="off"
                                     InputProps={{
-                                        className: classes.white,
+                                        className: classes.white
                                     }}
                                     inputRef={inputEl}
                                     InputLabelProps={{
@@ -135,7 +138,7 @@ const Butik = () => {
                                 />
                             </form>
                         </Box>
-                        <Box mt={6}>
+                        <Box mt={8} >
                             <Card className={classes.card}>
                                 <CardContent>
                                     <Typography className={classes.bold} variant="h3" align="left">Information</Typography>
@@ -153,7 +156,7 @@ const Butik = () => {
                     </Box>
                 </Grid>
                 <Grid item md={3}>
-                    <Box component="aside" bgcolor="primary.light" p={4} className={classes.aside}>
+                    <Box component="aside" bgcolor="primary.light" p={2} pt={8} className={classes.aside}>
                         <Validering />
                     </Box>
                 </Grid>
