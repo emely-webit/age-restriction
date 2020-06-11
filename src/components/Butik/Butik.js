@@ -54,7 +54,7 @@ const Butik = () => {
 
     useEffect(() => {
         if (!information) return
-        if (information[information.length - 1].length < 47 || information.length < 2) return alert('Prøv igen')
+        if (information[information.length - 1].length < 47 || information.length < 2)  return alert('Prøv igen')
 
         let name = information[0].replace('%', '').split('&').filter((x) => x).reverse().join(' ')
 
